@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "tooling/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "test": "turbo run test -- --forceExit --passWithNoTests",
+    "format": "turbo run format"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "turbo": "^1.10.12",
+    "wait-on": "^7.0.1"
+  },
+  "engines": {
+    "npm": ">=8.0.0",
+    "node": ">=18.0.0"
+  },
+  "packageManager": "npm@9.2.0",
+  "lint-staged": {
+    "**/*": "turbo run precommit:format --"
+  }
+}
